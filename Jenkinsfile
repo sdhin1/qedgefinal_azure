@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 //sh for mac
-                bat "docker build -t='sdhingra13/qedgefinal' ."
+                bat "docker build -t=sdhingra13/qedgefinal ."
             }
         }
         stage('Push Image') {
