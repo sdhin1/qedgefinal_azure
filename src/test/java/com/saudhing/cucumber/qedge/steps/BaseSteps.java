@@ -78,6 +78,7 @@ public class BaseSteps {
 			try {
 				//driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
 				driver = new RemoteWebDriver(new URL("http://172.20.110.97:4444/wd/hub"), cap);
+				System.out.println("Starting the session on Grid !!!");
 				log.info("Starting the session on Grid !!!");
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
@@ -91,12 +92,14 @@ public class BaseSteps {
 				//System.setProperty("webdriver.chrome.driver", DriverFactory.getChromeDriverExePath());
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
+				System.out.println("Chrome browser launched !!!");
 				log.info("Chrome browser launched !!!");
 			} else if (browser.equals("firefox") && DriverManager.getDriver() == null) {
 				System.out.println("Launching : " + browser);
 				//System.setProperty("webdriver.gecko.driver", DriverFactory.getGeckoDriverExePath());
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
+				System.out.println("Firefox browser launched !!!");
 				log.info("Firefox browser launched !!!");
 			}
 
