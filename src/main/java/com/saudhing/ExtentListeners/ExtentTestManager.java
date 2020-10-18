@@ -23,25 +23,29 @@ public class ExtentTestManager {
 	public static void logInfo(String message) {
 
 		testReport.get().info(message);
+		System.out.println(message);
+		
 	}
 
 	public static void logPass(String message) {
 
 		testReport.get().pass(message);
+		System.out.println(message);
+		
 	}
 
 	public static void scenarioPass() {
 
 		String passLogg = "SCENARIO PASSED";
 		Markup m = MarkupHelper.createLabel(passLogg, ExtentColor.GREEN);
-		testReport.get().log(Status.PASS, m);
-	
+		testReport.get().log(Status.PASS, m);	
 	
 	}
 
 	public static void logFail(String message) {
 
 		testReport.get().fail(message);
+		System.out.println(message);
 	}
 
 	public static synchronized boolean addScreenShotsOnFailure() {

@@ -140,15 +140,15 @@ public class BasePage {
 	/**********************************************************************************
 	 **SEND KEYS METHODS /
 	 **********************************************************************************/
-	public void sendKeysToWebElement(WebElement element, String elementName, String textToSend) {
+	public void sendKeysToWebElement(WebElement element, String name, String textToSend) {
 		try {
-			this.WaitUntilWebElementIsVisible(element);
+			this.WaitUntilWebElementIsVisible(element, name);
 			element.clear();
 			element.sendKeys(textToSend);
-			ExtentTestManager.logInfo("Set text: '" + textToSend + "' to element: " + elementName);
+			ExtentTestManager.logInfo("Set text: '" + textToSend + "' to element: " + name);
 		} catch (Exception e) {
 			//System.out.println("Unable to locate WebElement: " + "<" + element.toString() + "> and send the following keys: " + textToSend);
-			ExtentTestManager.logFail("Unable to locate WebElement: " + elementName + " and send the following keys: " + textToSend);
+			ExtentTestManager.logFail("Unable to locate WebElement: " + name + " and send the following keys: " + textToSend);
 			//Assert.fail("Unable to send keys to WebElement, Exception: " + e.getMessage());
 		}
 	}
@@ -214,45 +214,45 @@ public class BasePage {
 	/**********************************************************************************
 	 **WAIT METHODS
 	 **********************************************************************************/
-	public boolean WaitUntilWebElementIsVisible(WebElement element) {
+	public boolean WaitUntilWebElementIsVisible(WebElement element, String name) {
 		try {
 			this.wait.until(ExpectedConditions.visibilityOf(element));
-			System.out.println("WebElement is visible using locator: " + "<" + element.toString() + ">");
+			System.out.println("WebElement "+name+" is visible");
 			return true;
 		} catch (Exception e) {
-			System.out.println("WebElement is NOT visible, using locator: " + "<" + element.toString() + ">");
+			System.out.println("WebElement "+name+" is NOT visible");
 			//Assert.fail("WebElement is NOT visible, Exception: " + e.getMessage());
 			return false;
 		}
 	}
 
-	public boolean WaitUntilWebElementIsVisibleUsingByLocator(By element) {
+	public boolean WaitUntilWebElementIsVisibleUsingByLocator(By element, String name) {
 		try {
 			this.wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-			System.out.println("Element is visible using By locator: " + "<" + element.toString() + ">");
+			System.out.println("WebElement "+name+" is visible");
 			return true;
 		} catch (Exception e) {
-			System.out.println("WebElement is NOT visible, using By locator: " + "<" + element.toString() + ">");
+			System.out.println("WebElement "+name+" is NOT visible");
 			//Assert.fail("WebElement is NOT visible, Exception: " + e.getMessage());
 			return false;
 		}
 	}
 
-	public boolean isElementClickable(WebElement element) {
+	public boolean isElementClickable(WebElement element, String name) {
 		try {
 			this.wait.until(ExpectedConditions.elementToBeClickable(element));
-			System.out.println("WebElement is clickable using locator: " + "<" + element.toString() + ">");
+			System.out.println("WebElement "+name+" is clickable");
 			return true;
 		} catch (Exception e) {
-			System.out.println("WebElement is NOT clickable using locator: " + "<" + element.toString() + ">");
+			System.out.println("WebElement "+name+" is NOT clickable");
 			return false;
 		}
 	}
 	
-	public boolean isElementVisible(By locator) {
+	public boolean isElementVisible(By locator, String name) {
 		try {
 			this.wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-			System.out.println("WebElement is clickable using locator: " + "<" + locator + ">");
+			System.out.println("WebElement "+name+" is clickable");
 			return true;
 		} catch (Exception e) {
 			System.out.println("WebElement is NOT clickable using locator: " + "<" + locator + ">");

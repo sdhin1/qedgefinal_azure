@@ -70,7 +70,7 @@ public class QEdgeAddEmployeePage extends LoadableComponent<QEdgeAddEmployeePage
 
 		try {
 
-			basePage.WaitUntilWebElementIsVisible(txtBox_FirstName);
+			basePage.WaitUntilWebElementIsVisible(txtBox_FirstName, "First Name text box");
 			Thread.sleep(2000);
 			basePage.sendKeysToWebElement(txtBox_FirstName, "First Name text box", firstname+"_new");
 			basePage.sendKeysToWebElement(txtBox_LastName, "Last Name text box", lastname+"_new");
