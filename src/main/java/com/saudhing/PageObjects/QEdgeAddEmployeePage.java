@@ -55,6 +55,7 @@ public class QEdgeAddEmployeePage extends LoadableComponent<QEdgeAddEmployeePage
 	public void addEmployee(String firstName, String lastName, String email) {
 
 		try {
+			//add employee
 			Thread.sleep(2000);
 			basePage.sendKeysToWebElement(txtBox_FirstName, "First Name text box", firstName);
 			basePage.sendKeysToWebElement(txtBox_LastName, "Last Name text box", lastName);
