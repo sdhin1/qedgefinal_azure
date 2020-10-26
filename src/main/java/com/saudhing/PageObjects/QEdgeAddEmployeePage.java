@@ -16,8 +16,6 @@ public class QEdgeAddEmployeePage extends LoadableComponent<QEdgeAddEmployeePage
 	LoadableComponent<QEdgeHomePage> parent;
 
 	// *********Locators*********
-	//@FindBy(xpath="//body//*[text()='Add Employee']")
-	//public WebElement txt_AddEmployee;
 	public By txt_AddEmployee = By.xpath("//body//*[text()='Add Employee']");
 
 	@FindBy(name="firstName")
