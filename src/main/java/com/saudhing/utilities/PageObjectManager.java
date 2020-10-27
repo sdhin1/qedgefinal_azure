@@ -21,8 +21,6 @@ public class PageObjectManager {
 	}
 	
 	public QEdgeAddEmployeePage getQEdgeAddEmployeePage() {
-		//qedgeHomePage = (qedgeHomePage == null) ? getQEdgeHomePage() : qedgeHomePage;
-		//return (qedgeAddEmployeePage == null) ? new QEdgeAddEmployeePage(driver, qedgeHomePage) : qedgeAddEmployeePage;
 		qedgeHomePage = getQEdgeHomePage();
 		return new QEdgeAddEmployeePage(driver, qedgeHomePage);
 	}
