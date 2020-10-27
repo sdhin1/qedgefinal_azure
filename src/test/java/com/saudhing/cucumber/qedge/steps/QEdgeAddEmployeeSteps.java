@@ -31,6 +31,7 @@ public class QEdgeAddEmployeeSteps extends BaseSteps {
 	
 	@When("^user adds employee details \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
 	public void user_adds_employee_details(String firstname, String lastname, String email) throws Throwable {
+		System.out.println("add employee");
 		
 		qedgeAddEmployeePage.addEmployee(firstname, lastname, email);	
 		
