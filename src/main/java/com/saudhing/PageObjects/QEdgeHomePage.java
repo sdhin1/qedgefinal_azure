@@ -49,7 +49,8 @@ public class QEdgeHomePage extends LoadableComponent<QEdgeHomePage> {
 
 	@Override
 	protected void isLoaded() throws Error {
-		Assert.assertTrue(driver.getCurrentUrl().contains("web-employee-tracker"), "QEdge HomePage is not loaded !!");
+		//Assert.assertTrue(driver.getCurrentUrl().contains("web-employee-tracker"), "QEdge HomePage is not loaded !!");
+		Assert.assertTrue(driver.getCurrentUrl().contains("EmployeeTrackerApp"), "QEdge HomePage is not loaded !!");
 	}
 	
 	public void navigateToAddEmployee() {

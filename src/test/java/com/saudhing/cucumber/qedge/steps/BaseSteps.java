@@ -25,7 +25,7 @@ public class BaseSteps {
 	//private static WebDriver driver;
 	protected static WebDriver driver;
 	public Logger log = Logger.getLogger(BaseSteps.class);
-	public boolean grid = true;
+	public boolean grid = false;
 	
 	public void setUpFramework() {
 		
