@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+  hub:
+    restart: always
+    image: selenium/hub:3.141.59
+    container_name: saudhinggrid
+    privileged: true
+    ports:
+      - "4444:4444"
+    environment:
+        - GRID_TIMEOUT=240000
+        - GRID_BROWSER_TIMEOUT=240000
+    networks:
+        - saudhing_grid_internal
+  chrome:
+    restart: always
+    image: selenium/node-chrome-debug:3.141.59
+    privileged: true
+    ports :
+      - 5900
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+    networks:
+        - saudhing_grid_internal
+  firefox:
+    restart: always
+    image: selenium/node-firefox-debug:3.141.59
+    shm_size: '1gb'
+    privileged: true
+    depends_on:
+      - hub
+    ports :
+      - 5901
+    environment:
+      - HUB_HOST=hub
+    networks:
+        - saudhing_grid_internal
+  QEdge_xml:
+     image: sdhingra13/qedgefinal
+     depends_on:
+       - chrome
+       - firefox
+     environment:
+       - EXECUTIONTYPE=QEdge.xml
+     volumes:
+       - ./volumemapping-output/test-output:/usr/share/framework/test-output
+       - ./volumemapping-output/TestReport:/usr/share/framework/TestReport
+     networks:
+        - saudhing_grid_internal
+networks:
+    saudhing_grid_internal:
+         
