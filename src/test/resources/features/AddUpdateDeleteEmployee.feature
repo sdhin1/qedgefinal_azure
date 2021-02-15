@@ -1,7 +1,7 @@
 Feature: Add and Delete Employee to QEdge application
 
   Background: 
-    Given user launch browser 'chrome'
+    Given user launch browser 'firefox'
 
   Scenario Outline: Validate adding and deleting an employee is successful
     Given user navigates to Add Employee page

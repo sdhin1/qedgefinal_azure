@@ -1,7 +1,7 @@
 Feature: Update Employee to QEdge application
 
   Background: 
-    Given user launch browser 'chrome'
+    Given user launch browser 'firefox'
 
   Scenario: Validate 'Back to list' link functionality
     Given user navigates to Add Employee page
